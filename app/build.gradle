@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdk
+    buildToolsVersion rootProject.ext.versions.buildTools
+
+    defaultConfig {
+        applicationId "com.sanjmen.simplecomics"
+        minSdkVersion rootProject.ext.versions.minSdk
+        targetSdkVersion rootProject.ext.versions.targetSdk
+        versionCode rootProject.ext.versions.code
+        versionName rootProject.ext.versions.name
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+
+    // If you need to add more flavors, consider using flavor dimensions.
+    productFlavors {
+        mock {
+            applicationIdSuffix = ".mock"
+        }
+        prod {
+
+        }
+    }
+
+    // Remove mockRelease as it's not needed.
+    android.variantFilter { variant ->
+        if (variant.buildType.name == 'release'
+                && variant.getFlavors().get(0).name == 'mock') {
+            variant.setIgnore(true);
+        }
+    }
+
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+}
+
+android.buildTypes.each { type ->
+    type.buildConfigField "String", "API_PUBLIC_KEY", keystoreProperties['API_PUBLIC_KEY']
+    type.buildConfigField "String", "API_SECRET_KEY", keystoreProperties['API_SECRET_KEY']
+    type.buildConfigField "String", "API_BASE_URL", keystoreProperties['API_BASE_URL']
+    type.buildConfigField "int", "API_RESULTS_LIMIT", keystoreProperties['API_RESULTS_LIMIT']
+    type.buildConfigField "String", "API_RESULTS_ORDER_BY", keystoreProperties['API_RESULTS_ORDER_BY']
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android support dependencies
+    implementation libraries.supportAnnotations
+    implementation libraries.supportSupport
+    implementation libraries.supportAppCompat
+    implementation libraries.supportRecyclerView
+    implementation libraries.supportCardView
+    implementation libraries.supportDesign
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // App Dependencies
+    implementation libraries.dagger
+    implementation libraries.daggerAndroidSupport
+    annotationProcessor libraries.daggerCompiler
+    annotationProcessor libraries.daggerAndroidProcessor
+
+    implementation libraries.butterKnife
+    annotationProcessor libraries.butterKnifeCompiler
+
+    implementation libraries.gson
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.picasso
+    implementation libraries.picassoDownloader
+
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.retrofitRxJavaAdapter
+
+    // Debug
+    implementation libraries.timber
+    implementation libraries.stetho
+    implementation libraries.stethoOkHttp
+
+    // Dependencies for local unit tests
+    testImplementation libraries.junit
+    testImplementation libraries.mockitoCore
+    testImplementation libraries.hamcrest
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation libraries.supportTestRunner
+    androidTestImplementation libraries.supportTestRules
+
+    // Dependencies for Android unit tests
+    androidTestImplementation libraries.junit
+    androidTestImplementation libraries.mockitoCore
+
+    // Espresso UI Testing
+    androidTestImplementation libraries.espressoCore
+    androidTestImplementation libraries.espressoContrib
+    androidTestImplementation libraries.espressoIntents
+    androidTestImplementation libraries.espressoIdlingConcurrent
+    implementation libraries.espressoIdlingResource
+
+}
