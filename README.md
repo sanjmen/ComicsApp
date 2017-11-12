@@ -8,5 +8,9 @@ Before build:
 * rename ```keystore.properties.sample``` file as ```keystore.properties```
 * update ```API_PUBLIC_KEY``` and ```API_SECRET_KEY``` with your own credentials from your [Marvel Developer Account](https://developer.marvel.com/)
 
+## Screenshots
+![Comic List](/screenshots/comic_list.png?raw=true "Comic List")
+![Comic Detail](/screenshots/comic_detail.png?raw=true "Comic Detail")
+
 
 
