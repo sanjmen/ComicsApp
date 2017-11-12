@@ -3,6 +3,8 @@ package com.sanjmen.simplecomics.di;
 import android.app.Application;
 
 import com.sanjmen.simplecomics.ComicApp;
+import com.sanjmen.simplecomics.data.DataModule;
+import com.sanjmen.simplecomics.utils.UtilsModule;
 
 import javax.inject.Singleton;
 
@@ -24,6 +26,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
  */
 @Singleton
 @Component(modules = {
+        UtilsModule.class,
+        DataModule.class,
         AppModule.class,
         ActivityBindingModule.class,
         AndroidSupportInjectionModule.class})
