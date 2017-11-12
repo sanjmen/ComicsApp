@@ -40,26 +40,6 @@ android {
         }
     }
 
-    flavorDimensions 'default'
-
-    // If you need to add more flavors, consider using flavor dimensions.
-    productFlavors {
-        mock {
-            applicationIdSuffix = ".mock"
-        }
-        prod {
-
-        }
-    }
-
-    // Remove mockRelease as it's not needed.
-    android.variantFilter { variant ->
-        if (variant.buildType.name == 'release'
-                && variant.getFlavors().get(0).name == 'mock') {
-            variant.setIgnore(true);
-        }
-    }
-
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
         testLogging {
@@ -68,12 +48,12 @@ android {
     }
 }
 
-android.buildTypes.each { type ->
-    type.buildConfigField "String", "API_PUBLIC_KEY", keystoreProperties['API_PUBLIC_KEY']
-    type.buildConfigField "String", "API_SECRET_KEY", keystoreProperties['API_SECRET_KEY']
-    type.buildConfigField "String", "API_BASE_URL", keystoreProperties['API_BASE_URL']
-    type.buildConfigField "int", "API_RESULTS_LIMIT", keystoreProperties['API_RESULTS_LIMIT']
-    type.buildConfigField "String", "API_RESULTS_ORDER_BY", keystoreProperties['API_RESULTS_ORDER_BY']
+android.buildTypes.each {
+    it.buildConfigField "String", "MARVEL_API_KEY", keystoreProperties['MARVEL_API_KEY']
+    it.buildConfigField "String", "MARVEL_SECRET_KEY", keystoreProperties['MARVEL_SECRET_KEY']
+    it.buildConfigField "String", "API_BASE_URL", keystoreProperties['API_BASE_URL']
+    it.buildConfigField "int", "API_RESULTS_LIMIT", keystoreProperties['API_RESULTS_LIMIT']
+    it.buildConfigField "String", "API_RESULTS_ORDER_BY", keystoreProperties['API_RESULTS_ORDER_BY']
 }
 
 dependencies {
@@ -86,7 +66,7 @@ dependencies {
     implementation libraries.supportRecyclerView
     implementation libraries.supportCardView
     implementation libraries.supportDesign
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation libraries.supportConstraintLayout
 
     // App Dependencies
     implementation libraries.dagger

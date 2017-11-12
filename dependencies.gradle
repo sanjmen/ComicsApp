@@ -33,7 +33,7 @@ ext.versions = [
 ]
 
 ext.gradlePlugins = [
-        gradle: "com.android.tools.build:gradle:$versions.gradle",
+        gradle: "com.android.tools.build:gradle:$versions.gradle"
 ]
 
 ext.libraries = [
