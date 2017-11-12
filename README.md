@@ -1,4 +1,4 @@
-# SimpleComics
+# ComicsApp
 
 Android Application that allows you to browse comics, series and stories from Marvel's vast library of comics—from what's coming up, to 70 years ago.
 
