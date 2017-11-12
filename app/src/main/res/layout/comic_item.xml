@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/comic_card_view"
-    android:layout_width="@dimen/comic_item_container_width"
+    android:layout_width="match_parent"
     android:layout_height="@dimen/comic_item_container_height"
     android:layout_margin="@dimen/comic_item_card_margin"
     android:elevation="@dimen/comic_item_card_elevation"
