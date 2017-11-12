@@ -1,6 +1,10 @@
 package com.sanjmen.simplecomics.di;
 
+import com.sanjmen.simplecomics.comics.ComicsActivity;
+import com.sanjmen.simplecomics.comics.ComicsModule;
+
 import dagger.Module;
+import dagger.android.ContributesAndroidInjector;
 
 /**
  * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever module
@@ -14,4 +18,8 @@ import dagger.Module;
  */
 @Module
 public abstract class ActivityBindingModule {
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = ComicsModule.class)
+    abstract ComicsActivity comicsActivity();
 }

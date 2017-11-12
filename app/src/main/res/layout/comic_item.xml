@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comic_card_view"
+    android:layout_width="@dimen/comic_item_container_width"
+    android:layout_height="@dimen/comic_item_container_height"
+    android:layout_margin="@dimen/comic_item_card_margin"
+    android:elevation="@dimen/comic_item_card_elevation"
+    app:cardCornerRadius="@dimen/comic_item_card_border_radius">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/comic_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground">
+
+        <ImageView
+            android:id="@+id/comic_thumbnail_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/comic_item_image_height"
+            android:scaleType="center"
+            app:layout_constraintBottom_toTopOf="@+id/comic_caption_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/portrait_xlarge" />
+
+        <View
+            android:id="@+id/comic_caption_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/comic_item_caption_background_height"
+            android:background="@color/comic_item_caption_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_thumbnail_image_view" />
+
+        <TextView
+            android:id="@+id/comic_title_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin_half"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="2"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/comic_caption_background"
+            app:layout_constraintEnd_toEndOf="@+id/comic_constraint_layout"
+            app:layout_constraintStart_toStartOf="@+id/comic_constraint_layout"
+            app:layout_constraintTop_toTopOf="@+id/comic_caption_background"
+            tools:text="@string/comic_item_title_text" />
+
+        <ProgressBar
+            android:id="@+id/comic_thumbnail_loading_ui_progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/comic_thumbnail_image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/comic_thumbnail_image_view" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

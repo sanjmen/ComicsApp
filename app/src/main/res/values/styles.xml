@@ -1,11 +1,33 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Main theme colors -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/primaryColor</item>
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
+        <item name="actionMenuTextColor">@color/primaryDarkColor</item>
+    </style>
+
+    <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorBackground">@color/primaryDarkColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="ComicSummaryTextTheme" parent="AppTheme">
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>
