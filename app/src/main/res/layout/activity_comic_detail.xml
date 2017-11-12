@@ -1,0 +1,167 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comic_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/comic_item_card_elevation">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/comic_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor">
+
+        <ProgressBar
+            android:id="@+id/comic_detail_loading_ui_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/comic_detail_thumbnail_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/comic_detail_thumbnail_image_view"
+            app:layout_constraintStart_toStartOf="@+id/comic_detail_thumbnail_image_view"
+            app:layout_constraintTop_toTopOf="@+id/comic_detail_thumbnail_image_view" />
+
+        <TextView
+            android:id="@+id/comic_detail_title_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/activity_vertical_margin_half"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/comic_item_title_text" />
+
+        <ImageView
+            android:id="@+id/comic_detail_thumbnail_image_view"
+            android:layout_width="175dp"
+            android:layout_height="@dimen/comic_item_image_height_big"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_title_text_view"
+            app:srcCompat="@drawable/portrait_xlarge" />
+
+        <TextView
+            android:id="@+id/comic_detail_description_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_detail_thumbnail_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_title_text_view"
+            tools:text="@string/comic_item_title_text" />
+
+        <TextView
+            android:id="@+id/comic_detail_issue_number_field_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/comic_detail_issue_number_field"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_thumbnail_image_view" />
+
+        <TextView
+            android:id="@+id/comic_detail_issue_number_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/comic_detail_issue_number_field_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_detail_issue_number_field_text_view"
+            tools:text="@string/comic_detail_issue_number_field" />
+
+        <TextView
+            android:id="@+id/comic_detail_format_field_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/comic_detail_format_field"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_issue_number_field_text_view" />
+
+        <TextView
+            android:id="@+id/comic_detail_format_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/comic_detail_format_field_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_detail_format_field_text_view"
+            tools:text="@string/comic_detail_format_field" />
+
+        <TextView
+            android:id="@+id/comic_detail_page_count_field_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/comic_detail_page_count_field"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_format_field_text_view" />
+
+        <TextView
+            android:id="@+id/comic_detail_page_count_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/comic_detail_page_count_field_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_detail_page_count_field_text_view"
+            tools:text="@string/comic_detail_page_count_field" />
+
+        <TextView
+            android:id="@+id/comic_detail_creators_field_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/comic_detail_creators_field"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comic_detail_page_count_field_text_view" />
+
+        <TextView
+            android:id="@+id/comic_detail_creators_text_view"
+            style="@style/ComicSummaryTextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/comic_detail_creators_field_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_detail_creators_field_text_view"
+            tools:text="@string/comic_detail_creators_field" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

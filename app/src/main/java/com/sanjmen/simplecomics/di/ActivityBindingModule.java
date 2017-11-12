@@ -1,5 +1,6 @@
 package com.sanjmen.simplecomics.di;
 
+import com.sanjmen.simplecomics.comicdetail.ComicDetailActivity;
 import com.sanjmen.simplecomics.comics.ComicsActivity;
 import com.sanjmen.simplecomics.comics.ComicsModule;
 
@@ -22,4 +23,8 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = ComicsModule.class)
     abstract ComicsActivity comicsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract ComicDetailActivity comicDetailActivity();
 }
