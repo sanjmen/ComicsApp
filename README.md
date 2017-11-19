@@ -5,8 +5,27 @@ Android Application that allows you to browse comics, series and stories from Ma
 ## Configuration
 
 Before build:
+
 * rename ```keystore.properties.sample``` file as ```keystore.properties```
+
+#### Get your API key pair
 * update ```API_PUBLIC_KEY``` and ```API_SECRET_KEY``` with your own credentials from your [Marvel Developer Account](https://developer.marvel.com/)
+
+#### Sign your app
+* You must create a key and a keystore to generate a signed APK.
+
+[read about how to generate a keystore](https://developer.android.com/studio/publish/app-signing.html#generate-key)
+
+then you must
+
+* update keystore.properties with your own credentials 
+
+````
+STORE_PASSWORD="my store password"
+KEY_PASSWORD="my key password"
+KEY_ALIAS="my key alias"
+STORE_FILE="/path/to/my/store/file"
+````
 
 ## Screenshots
 ![Comic List](/screenshots/comic_list.png?raw=true "Comic List")

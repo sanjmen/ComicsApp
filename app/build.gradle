@@ -28,10 +28,14 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['KEY_ALIAS']
-            keyPassword keystoreProperties['KEY_PASSWORD']
-            storeFile file(keystoreProperties['STORE_FILE'])
-            storePassword keystoreProperties['STORE_PASSWORD']
+            try {
+                keyAlias keystoreProperties['KEY_ALIAS']
+                keyPassword keystoreProperties['KEY_PASSWORD']
+                storeFile file(keystoreProperties['STORE_FILE'])
+                storePassword keystoreProperties['STORE_PASSWORD']
+            } catch (ex) {
+                throw new InvalidUserDataException("You should define STORE_PASSWORD and KEY_PASSWORD in keystore.properties.")
+            }
         }
     }
 
