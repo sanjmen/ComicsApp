@@ -24,4 +24,4 @@ android:
     - android-$ANDROID_API
 
 script:
-  - "./gradlew test"
+  - "./gradlew testDebugUnitTest"
