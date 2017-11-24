@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primaryColor">#424242</color>
-    <color name="primaryLightColor">#6d6d6d</color>
     <color name="primaryDarkColor">#1b1b1b</color>
     <color name="secondaryColor">#cddc39</color>
-    <color name="secondaryLightColor">#ffff6e</color>
-    <color name="secondaryDarkColor">#99aa00</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
 
@@ -13,5 +10,4 @@
     <color name="windowBackgroundLight">#F5F5F6</color>
 
     <color name="comic_item_caption_background">@color/windowBackgroundLight</color>
-    <color name="comic_detail_background">#212121</color>
 </resources>

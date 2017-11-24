@@ -15,6 +15,8 @@ import com.sanjmen.simplecomics.utils.DeviceDimensionsHelper;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -99,7 +101,7 @@ public class ComicDetailActivity extends DaggerAppCompatActivity {
 
         StringBuilder creatorsText = new StringBuilder();
         for (Summary creator : comic.getCreators().getItems()) {
-            creatorsText.append(creator.getRole().toUpperCase() + ": " + creator.getName() + ".\n");
+            creatorsText.append(creator.getRole().toUpperCase(Locale.getDefault()) + ": " + creator.getName() + ".\n");
         }
         if (creatorsText.length() > 0) {
             creatorsTextView.setText(creatorsText);

@@ -69,7 +69,7 @@ public class QueryInterceptor implements Interceptor {
             return md5;
 
         } catch (NoSuchAlgorithmException e) {
-            Timber.e("Error on md5 digest: " + e.getMessage());
+            Timber.e(e, "Error on md5 digest");
             return "";
         }
     }

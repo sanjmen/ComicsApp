@@ -14,4 +14,6 @@
     <string name="comic_detail_page_count_field">Page Count:</string>
     <string name="comic_detail_creators_field">Creators:</string>
 
+    <string name="comic_image_content_description">Comic Image</string>
+
 </resources>

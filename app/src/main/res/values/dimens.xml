@@ -2,28 +2,16 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin_half">8dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_horizontal_margin_double">32dp</dimen>
-    <dimen name="activity_horizontal_margin_double_double">64dp</dimen>
 
     <dimen name="activity_vertical_margin_half">8dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin_double">32dp</dimen>
-    <dimen name="activity_vertical_margin_double_double">64dp</dimen>
 
     <!-- comic list dimens -->
     <dimen name="comic_item_card_border_radius">4dp</dimen>
     <dimen name="comic_item_card_margin">2dp</dimen>
     <dimen name="comic_item_card_elevation">8dp</dimen>
-    <dimen name="comic_item_container_width">-1dp</dimen>
     <dimen name="comic_item_container_height">250dp</dimen>
     <dimen name="comic_item_image_height">200dp</dimen>
     <dimen name="comic_item_image_height_big">300dp</dimen>
     <dimen name="comic_item_caption_background_height">50dp</dimen>
-    <dimen name="comic_item_container_padding">8dp</dimen>
-    <dimen name="comic_item_margin">4dp</dimen>
-    <dimen name="comic_item_margin_bottom">8dp</dimen>
-
-    <dimen name="comic_detail_card_border_radius">8dp</dimen>
-
 </resources>
