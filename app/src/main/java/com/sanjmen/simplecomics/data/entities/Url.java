@@ -21,13 +21,10 @@ public class Url implements Parcelable {
     };
     @SerializedName("type")
     @Expose
-    private String type;
+    private final String type;
     @SerializedName("url")
     @Expose
-    private String url;
-
-    public Url() {
-    }
+    private final String url;
 
     protected Url(Parcel in) {
         this.type = in.readString();

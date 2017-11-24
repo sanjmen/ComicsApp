@@ -3,15 +3,17 @@ package com.sanjmen.simplecomics.data.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("PMD.UnusedPrivateField")
 public class ComicDataWrapper {
 
     @SerializedName("code")
     @Expose
-    private Integer code;
+    private final Integer code;
 
+    @SuppressWarnings("PMD.SingularField")
     @SerializedName("status")
     @Expose
-    private String status;
+    private final String status;
 
     @SerializedName("copyright")
     @Expose
@@ -31,7 +33,7 @@ public class ComicDataWrapper {
 
     @SerializedName("data")
     @Expose
-    private ComicDataContainer data;
+    private final ComicDataContainer data;
 
     public ComicDataWrapper(Integer code, String status, ComicDataContainer data) {
         this.code = code;
@@ -41,10 +43,6 @@ public class ComicDataWrapper {
 
     public Integer getCode() {
         return code;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
     public ComicDataContainer getData() {

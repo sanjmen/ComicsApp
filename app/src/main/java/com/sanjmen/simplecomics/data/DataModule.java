@@ -38,8 +38,7 @@ public class DataModule {
     @Provides
     Cache provideOkHttpCache(@NonNull Application application) {
         int cacheSize = 10 * 1024 * 1024; // 10 MiB
-        Cache cache = new Cache(application.getCacheDir(), cacheSize);
-        return cache;
+        return new Cache(application.getCacheDir(), cacheSize);
     }
 
     @NonNull
@@ -61,7 +60,7 @@ public class DataModule {
     @Singleton
     @Provides
     OkHttpClient provideOkHttpClient(@NonNull Cache cache, @NonNull QueryInterceptor queryInterceptor) {
-        OkHttpClient client = new OkHttpClient.Builder()
+        return new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
@@ -70,8 +69,6 @@ public class DataModule {
                 .addInterceptor(queryInterceptor)
                 .cache(cache)
                 .build();
-
-        return client;
     }
 
     @NonNull
@@ -79,7 +76,7 @@ public class DataModule {
     @Provides
     @Named("OkHttpImageClient")
     OkHttpClient provideOkHttpImageClient(@NonNull Cache cache) {
-        OkHttpClient client = new OkHttpClient.Builder()
+        return new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
@@ -87,23 +84,19 @@ public class DataModule {
                 .addNetworkInterceptor(new StethoInterceptor())
                 .cache(cache)
                 .build();
-
-        return client;
     }
 
     @NonNull
     @Singleton
     @Provides
     RestApiService provideRestApiService(@NonNull Gson gson, @NonNull OkHttpClient okHttpClient) {
-        RestApiService retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(BuildConfig.API_BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
                 .create(RestApiService.class);
-
-        return retrofit;
     }
 
     @NonNull

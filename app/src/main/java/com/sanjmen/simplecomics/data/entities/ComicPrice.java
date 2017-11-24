@@ -21,33 +21,14 @@ public class ComicPrice implements Parcelable {
     };
     @SerializedName("type")
     @Expose
-    private String type;
+    private final String type;
     @SerializedName("price")
     @Expose
-    private Double price;
-
-    public ComicPrice() {
-    }
+    private final Double price;
 
     protected ComicPrice(Parcel in) {
         this.type = in.readString();
         this.price = (Double) in.readValue(Double.class.getClassLoader());
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     @Override

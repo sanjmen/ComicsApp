@@ -21,13 +21,10 @@ public class ComicDate implements Parcelable {
     };
     @SerializedName("type")
     @Expose
-    private String type;
+    private final String type;
     @SerializedName("date")
     @Expose
-    private String date;
-
-    public ComicDate() {
-    }
+    private final String date;
 
     protected ComicDate(Parcel in) {
         this.type = in.readString();

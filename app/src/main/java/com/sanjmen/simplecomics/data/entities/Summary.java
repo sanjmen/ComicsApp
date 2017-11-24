@@ -22,21 +22,18 @@ public class Summary implements Parcelable {
     };
     @SerializedName("resourceURI")
     @Expose
-    private String resourceURI;
+    private final String resourceURI;
     @SerializedName("name")
     @Expose
-    private String name;
+    private final String name;
     @SerializedName("role")
     @Expose
     @Nullable
-    private String role;
+    private final String role;
     @SerializedName("type")
     @Expose
     @Nullable
-    private String type;
-
-    public Summary() {
-    }
+    private final String type;
 
     protected Summary(Parcel in) {
         this.resourceURI = in.readString();
@@ -58,10 +55,6 @@ public class Summary implements Parcelable {
         dest.writeString(this.type);
     }
 
-    public String getResourceURI() {
-        return resourceURI;
-    }
-
     public String getName() {
         return name;
     }
@@ -69,10 +62,5 @@ public class Summary implements Parcelable {
     @Nullable
     public String getRole() {
         return role;
-    }
-
-    @Nullable
-    public String getType() {
-        return type;
     }
 }

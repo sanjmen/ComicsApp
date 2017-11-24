@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("PMD.UnusedPrivateField")
 public class Comic implements Parcelable {
 
     public static final Parcelable.Creator<Comic> CREATOR = new Parcelable.Creator<Comic>() {
@@ -24,13 +25,13 @@ public class Comic implements Parcelable {
     };
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private final Integer id;
     @SerializedName("digitalId")
     @Expose
     private Integer digitalId;
     @SerializedName("title")
     @Expose
-    private String title;
+    private final String title;
     @SerializedName("issueNumber")
     @Expose
     private Integer issueNumber;
@@ -39,7 +40,7 @@ public class Comic implements Parcelable {
     private String variantDescription;
     @SerializedName("description")
     @Expose
-    private String description;
+    private final String description;
     @SerializedName("modified")
     @Expose
     private String modified;
@@ -116,9 +117,6 @@ public class Comic implements Parcelable {
         this.description = description;
     }
 
-    public Comic() {
-    }
-
     protected Comic(Parcel in) {
         this.id = (Integer) in.readValue(Integer.class.getClassLoader());
         this.digitalId = (Integer) in.readValue(Integer.class.getClassLoader());
@@ -175,44 +173,12 @@ public class Comic implements Parcelable {
         return thumbnail;
     }
 
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public Integer getDigitalId() {
-        return digitalId;
-    }
-
     public Integer getIssueNumber() {
         return issueNumber;
     }
 
-    public String getVariantDescription() {
-        return variantDescription;
-    }
-
     public String getModified() {
         return modified;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public String getUpc() {
-        return upc;
-    }
-
-    public String getDiamondCode() {
-        return diamondCode;
-    }
-
-    public String getEan() {
-        return ean;
-    }
-
-    public String getIssn() {
-        return issn;
     }
 
     public String getFormat() {
@@ -223,56 +189,8 @@ public class Comic implements Parcelable {
         return pageCount;
     }
 
-    public List<TextObject> getTextObjects() {
-        return textObjects;
-    }
-
-    public String getResourceURI() {
-        return resourceURI;
-    }
-
-    public List<Url> getUrls() {
-        return urls;
-    }
-
-    public LinkObject getSeries() {
-        return series;
-    }
-
-    public List<LinkObject> getVariants() {
-        return variants;
-    }
-
-    public List<LinkObject> getCollections() {
-        return collections;
-    }
-
-    public List<LinkObject> getCollectedIssues() {
-        return collectedIssues;
-    }
-
-    public List<ComicDate> getDates() {
-        return dates;
-    }
-
-    public List<ComicPrice> getPrices() {
-        return prices;
-    }
-
     public ComicExtraInfo getCreators() {
         return creators;
-    }
-
-    public ComicExtraInfo getCharacters() {
-        return characters;
-    }
-
-    public ComicExtraInfo getStories() {
-        return stories;
-    }
-
-    public ComicExtraInfo getEvents() {
-        return events;
     }
 
     @Override

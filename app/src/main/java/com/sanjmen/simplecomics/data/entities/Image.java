@@ -21,13 +21,10 @@ public class Image implements Parcelable {
     };
     @SerializedName("path")
     @Expose
-    private String path;
+    private final String path;
     @SerializedName("extension")
     @Expose
-    private String extension;
-
-    public Image() {
-    }
+    private final String extension;
 
     protected Image(Parcel in) {
         this.path = in.readString();

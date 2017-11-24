@@ -21,16 +21,13 @@ public class TextObject implements Parcelable {
     };
     @SerializedName("type")
     @Expose
-    private String type;
+    private final String type;
     @SerializedName("language")
     @Expose
-    private String language;
+    private final String language;
     @SerializedName("text")
     @Expose
-    private String text;
-
-    public TextObject() {
-    }
+    private final String text;
 
     protected TextObject(Parcel in) {
         this.type = in.readString();

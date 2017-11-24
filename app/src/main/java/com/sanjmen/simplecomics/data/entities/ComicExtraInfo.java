@@ -24,19 +24,18 @@ public class ComicExtraInfo implements Parcelable {
     };
     @SerializedName("available")
     @Expose
-    private Integer available;
+    private final Integer available;
     @SerializedName("collectionURI")
     @Expose
-    private String collectionURI;
+    private final String collectionURI;
+
+    @SuppressWarnings("PMD.ImmutableField")
     @SerializedName("items")
     @Expose
     private List<Summary> items = null;
     @SerializedName("returned")
     @Expose
-    private Integer returned;
-
-    public ComicExtraInfo() {
-    }
+    private final Integer returned;
 
     protected ComicExtraInfo(Parcel in) {
         this.available = (Integer) in.readValue(Integer.class.getClassLoader());

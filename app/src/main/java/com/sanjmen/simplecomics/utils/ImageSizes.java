@@ -1,5 +1,6 @@
 package com.sanjmen.simplecomics.utils;
 
+@SuppressWarnings("PMD")
 public class ImageSizes {
 
     /**

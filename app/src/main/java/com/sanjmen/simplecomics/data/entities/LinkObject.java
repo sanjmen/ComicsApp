@@ -24,13 +24,10 @@ public class LinkObject implements Parcelable {
     };
     @SerializedName("resourceURI")
     @Expose
-    private String resourceURI;
+    private final String resourceURI;
     @SerializedName("name")
     @Expose
-    private String name;
-
-    public LinkObject() {
-    }
+    private final String name;
 
     protected LinkObject(Parcel in) {
         this.resourceURI = in.readString();

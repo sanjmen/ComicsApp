@@ -22,7 +22,7 @@ public class ComicsPresenter implements ComicsContract.Presenter {
     @Nullable
     private ComicsContract.View comicsView;
     @NonNull
-    private CompositeDisposable compositeDisposable;
+    private final CompositeDisposable compositeDisposable;
 
     private int offset;
 
@@ -66,10 +66,8 @@ public class ComicsPresenter implements ComicsContract.Presenter {
     private void loadComics(boolean forceUpdate) {
         compositeDisposable.clear();
 
-        if (offset == 0) {
-            if (comicsView != null) {
+        if (offset == 0 && comicsView != null) {
                 comicsView.showLoadingUi();
-            }
         }
         if (forceUpdate) {
             offset = 0;

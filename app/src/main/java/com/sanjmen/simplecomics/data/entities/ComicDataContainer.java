@@ -23,16 +23,18 @@ public class ComicDataContainer implements Parcelable {
     };
     @SerializedName("offset")
     @Expose
-    private Integer offset;
+    private final Integer offset;
     @SerializedName("limit")
     @Expose
     private Integer limit;
     @SerializedName("total")
     @Expose
-    private Integer total;
+    private final Integer total;
     @SerializedName("count")
     @Expose
     private Integer count;
+
+    @SuppressWarnings("PMD.ImmutableField")
     @SerializedName("results")
     @Expose
     private List<Comic> results = null;
@@ -55,28 +57,12 @@ public class ComicDataContainer implements Parcelable {
         return offset;
     }
 
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public Integer getLimit() {
-        return limit;
-    }
-
     public Integer getTotal() {
         return total;
     }
 
-    public Integer getCount() {
-        return count;
-    }
-
     public List<Comic> getResults() {
         return results;
-    }
-
-    public void setResults(List<Comic> results) {
-        this.results = results;
     }
 
     @Override

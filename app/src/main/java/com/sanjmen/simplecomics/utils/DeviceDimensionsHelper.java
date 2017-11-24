@@ -55,7 +55,6 @@ public class DeviceDimensionsHelper {
     public float convertPixelsToDp(float px) {
         Resources r = context.getResources();
         DisplayMetrics metrics = r.getDisplayMetrics();
-        float dp = px / (metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT); // density default 160
-        return dp;
+        return px / (metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT); // density default 160
     }
 }

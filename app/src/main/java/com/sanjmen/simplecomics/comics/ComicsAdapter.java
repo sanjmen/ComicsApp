@@ -42,17 +42,12 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsViewHolder> {
 
     @Override
     public void onBindViewHolder(ComicsViewHolder holder, int position) {
+        if (position == getItemCount() - 1) {
+            listener.onScrolledToBottom(position);
+        }
         Comic comic = comicList.get(position);
         holder.bind(comic);
-
-        holder.rootView.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        listener.onComicClick(comic);
-                    }
-                }
-        );
+        holder.rootView.setOnClickListener(view -> listener.onComicClick(comic));
     }
 
     @Override
@@ -72,5 +67,6 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsViewHolder> {
 
     public interface Listener {
         void onComicClick(Comic comic);
+        void onScrolledToBottom(int position);
     }
 }
